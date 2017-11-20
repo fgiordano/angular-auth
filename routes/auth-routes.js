@@ -38,6 +38,8 @@ router.post('/signup', (req, res, next) => {
 			}
 
 			req.login( theUser, (err) => {
+				// hide the passqord from the frontend by setting it to undefined
+				theUser.password = undefined;
 				res.status(200).json(theUser);	
 			});
 		}); // theUser.save()
@@ -64,6 +66,8 @@ router.post('/login', (req, res, next) => {
 		//if we get here we are GOOD!
 		// log the user in 
 		req.login(foundUser, (err) => {
+			// hide the password from the frontend by setting it to undefined
+			foundUser.password = undefined;
 			res.status(200).json(foundUser);
 		});
 	}); //User.findOne()
