@@ -73,5 +73,10 @@ router.post('/login', (req, res, next) => {
 	}); //User.findOne()
 });//POST / login
 
+router.post('/logout', (req, res, next) => {
+	req.logout();
+	res.status(200).json({ message: 'Success'});
+	});
+
 
 module.exports = router;
